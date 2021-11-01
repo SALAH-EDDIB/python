@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+ 
+
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Create Machine</h4>
+    </div>
+    <div class="card-body">
+
+        <form action='.' method='POST'>{% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-primary" type='submit' value='Save' />
+        </form>
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}

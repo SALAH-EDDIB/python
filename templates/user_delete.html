@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h2>Do you want to delete the user "{{ object.username }}" ?</h2>
+    </div>
+    <div class="card-body">
+
+        <form action='.' method='POST'>{% csrf_token %}
+   
+            <p  ><input class="btn btn-danger " type='submit' value='Yes' />  <a class="btn btn-primary " style="
+                margin-left: 10px;
+            " href='../../'>Cancel</a></p>
+        
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

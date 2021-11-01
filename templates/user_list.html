@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row" id="basic-table">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Users List</h4>
+                <a href='create'>
+                    <button class="btn btn-primary text-nowrap px-1 waves-effect  " data-repeater-delete="" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus me-25"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        <span>Create</span>
+                    </button>
+                   </a>
+            </div>
+ 
+            <div class="table-responsive">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+         
+
+
+{% for instance in object_list %}
+
+<tr>
+
+    <td>{{instance.id}}</td>
+    <td>{{instance.username}}</td>
+    <td>{{instance.email}}</td>
+
+
+    <td>
+   
+        <a href='{{ instance.id }}/delete'>
+        <button class="btn btn-outline-danger text-nowrap px-1 waves-effect " data-repeater-delete="" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x me-25"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            <span>Delete</span>
+        </button>
+    </a>
+
+
+
+
+
+        <a href='{{ instance.id }}/update'>
+        <button class="btn btn-outline-primary text-nowrap px-1 waves-effect  " data-repeater-delete="" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus me-25"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>Edit</span>
+        </button>
+       </a>
+
+
+    </td>
+</tr>
+
+
+     <!-- <p>{{ instance.id }} - <a href='{{ instance.get_absolute_url }}'>{{ instance.name }}</a></p> -->
+{% endfor %}
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

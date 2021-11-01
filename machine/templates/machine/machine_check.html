@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<section class="invoice-preview-wrapper">
+    <div class="row invoice-preview">
+        <!-- Invoice -->
+        <div class="">
+            <div class="card invoice-preview-card">
+                <div class="card-body invoice-padding pb-0">
+                    <!-- Header starts -->
+                    <div class="d-flex justify-content-between flex-md-row flex-column invoice-spacing mt-0">
+                        <div>
+                            <div class="logo-wrapper">
+
+                                <h2 class="text-primary  ">{{ object.name }}</h2>
+                            </div>
+                            <h6 class="mb-2">Last Description :</h6>
+                            <p class="card-text mb-25">{{ object.description }}</p>
+                            
+                        </div>
+                        <div class="mt-md-0 mt-2">
+                            <h4 class="invoice-title">
+                                ID
+                                <span class="invoice-number">#{{ object.id }}</span>
+                            </h4>
+                            <div class="invoice-date-wrapper">
+                                <p class="invoice-date-title">Last Check:</p>
+                                <p class="invoice-date">{{ object.lastCheckDate }}</p>
+                            </div>
+                            <div class="invoice-date-wrapper">
+                                <p class="invoice-date-title">Next Check:</p>
+                                <p class="invoice-date">{{ object.nextCheckDate }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Header ends -->
+                </div>
+
+      
+
+                <!-- Address and Contact starts -->
+                    <div class="m-2">
+                        <form action='.' method='POST'>{% csrf_token %}
+                            <p><label for="id_nextCheckDate">Nextcheckdate:</label> {{ form.nextCheckDate }}</p>
+                            <p><label for="id_description">Description:</label> {{ form.description }}  </p>
+                            <input class="btn btn-primary " type='submit' value='Check' />
+                        </form>
+
+                    </div>
+
+
+                
+
+
+
+            </div>
+        </div>
+        
+
+
+
+    </div>
+</section>
+
+{% endblock %}
